@@ -1,4 +1,4 @@
-import Swal from "./js/sweetalert2/dist/sweetalert2.js";
+import Swal from "./node_modules/sweetalert2/dist/sweetalert2.js";
 
 import "sweetalert2/src/sweetalert2.scss";
 
