@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eleosz Food</title>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="./css/all.css" />
+    <link rel="stylesheet" href="./css/all.min.css" />
+
+    <!-- Jquery -->
+    <script src="./js/jquery-3.6.3.js"></script>
+
+    <!-- Sweet alert -->
+    <script src="./node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+  </head>
+
+  <body>
+    <div class="header" id="header">
+      <nav class="navbar">
+        <img src="./img/ELEOSZ.png" alt="" />
+        <ul>
+          <li><a href="#header">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#footer">Contact</a></li>
+        </ul>
+
+        <div class="menu-toggle">
+          <input type="checkbox" />
+          <span></span><span></span><span></span>
+        </div>
+      </nav>
+      <header>
+        <div class="sidebar">
+          <a href="#footer"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#footer"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+        <div class="hero">
+          <div class="churros">
+            <div class="churros-cover"></div>
+            <img src="./img/header-churros.jpg" alt="" />
+          </div>
+          <div class="pudding">
+            <div class="pudding-cover"></div>
+            <img src="./img/header-pudding.jpg" alt="" />
+          </div>
+        </div>
+      </header>
+    </div>
+
+    <div class="about-us" id="about">
+      <div class="about-container">
+        <div class="img">
+          <img src="./img/story-img.jpg" alt="" />
+          <img src="./img/pudding-product.jpg" alt="" class="phone" />
+        </div>
+        <div class="img-line"></div>
+        <div class="content">
+          <h1>Our story:</h1>
+          <br />
+          <p>Selamat datang di website kami Eleosz Food Eleosz Food menyediakan dessert kekinian yang dikemas sedemikian rupa sehingga menjaga tingkat kebersihan dessert tetapi tetap mudah untuk dinikmati.</p>
+          <p>Kami menyediakan dessert dengan beragam rasa sehingga cocok untuk semua kalangan atau umur!</p>
+          <p>Kamu bisa menemukan kami di @eleoszfood atau click disini untuk contact person</p>
+          <a href=""><i class="fa-brands fa-instagram"></i></a>
+          <a href=""><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu" id="menu">
+      <h1>Menu</h1>
+      <br />
+      <div class="menu-line"></div>
+      <div class="cards">
+        <div class="buy-form">
+          <h1>Eleosz Food</h1>
+        </div>
+        <div class="pudding-card">
+          <div class="product-images">
+            <img src="./img/chocolate-pudding.jpg" alt="" id="chocolate-pudding" />
+            <img src="./img/biscuit-pudding.jpg" alt="" id="biscuit-pudding" />
+            <img src="./img/greentea-pudding.jpg" alt="" id="greentea-pudding" />
+            <img src="./img/bubblegum-pudding.jpg" alt="" id="bubblegum-pudding" />
+            <img src="./img/chococookies-pudding.jpg" alt="" id="chococookies-pudding" />
+            <img src="./img/strawberry-pudding.jpg" alt="" id="strawberry-pudding" />
+          </div>
+          <div class="product-text">
+            <div class="product-header">
+              <h4>Pudding</h4>
+              <div class="price">Rp. <span> 6000</span></div>
+            </div>
+            <div class="description">
+              <span>DESCRIPTION</span><br />
+              <p>Pudding segar dengan berbagai varian rasa yang manis, seperti rasa buah dan rasa kekinian lain</p>
+              <div class="variant">
+                <div class="variant-icons">
+                  <span id="pudding-flavour">VARIAN RASA</span>
+                  <div class="radio-buttons">
+                    <input type="radio" name="pudding-variant" value="Strawberry pudding" onclick="puddingVariant('strawberry')" id="strawberry-option" class="input-hidden" />
+                    <label for="strawberry-option">
+                      <img src="./img/strawberry-pudding.jpg" alt="" />
+                    </label>
+                    <input type="radio" title="Chocolate pudding!" onclick="puddingVariant('chocolate')" value="Chocolate pudding" id="chocolate-option" class="input-hidden" name="pudding-variant" />
+                    <label for="chocolate-option">
+                      <img src="./img/chocolate-pudding.jpg" alt="" />
+                    </label>
+                    <input type="radio" title="Chococookies pudding!" onclick="puddingVariant('chococookies')" value="Chococookies pudding" id="chococookies-option" class="input-hidden" name="pudding-variant" />
+                    <label for="chococookies-option">
+                      <img src="./img/chococookies-pudding.jpg" alt="" />
+                    </label>
+                    <input type="radio" title="Greentea pudding!" onclick="puddingVariant('greentea')" value="Greentea pudding" id="greentea-option" class="input-hidden" name="pudding-variant" />
+                    <label for="greentea-option">
+                      <img src="./img/greentea-pudding.jpg" alt="" />
+                    </label>
+                    <input type="radio" title="Biscuit pudding!" onclick="puddingVariant('biscuit')" value="Biscuit pudding" id="biscuit-option" class="input-hidden" name="pudding-variant" />
+                    <label for="biscuit-option">
+                      <img src="./img/biscuit-pudding.jpg" alt="" />
+                    </label>
+                    <input type="radio" title="Bubblegum pudding!" onclick="puddingVariant('bubblegum')" value="Bubblegum pudding" id="bubblegum-option" class="input-hidden" name="pudding-variant" />
+                    <label for="bubblegum-option">
+                      <img src="./img/bubblegum-pudding.jpg" alt="" />
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <input type="number" name="pudding-quantity" id="pudding-quantity" class="quantity" readonly placeholder="0" />
+            </div>
+            <div class="button">
+              <button class="like">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+              <button type="submit" class="buy" onclick="addToCart(this)">Add to cart</button>
+            </div>
+          </div>
+        </div>
+        <div class="churros-card">
+          <div class="product-images">
+            <img src="./img/cheese-churros.jpg" alt="" id="cheese-churros" />
+            <img src="./img/chocolate-churros.jpg" alt="" id="chocolate-churros" />
+          </div>
+          <div class="product-text churros-text">
+            <div class="product-header">
+              <h4>Crispy Roll</h4>
+              <div class="price">Rp. <span> 9000</span></div>
+            </div>
+            <br />
+            <div class="description">
+              <span>DESCRIPTION</span><br />
+              <p>Crispy roll hangat dengan varian rasa kekinian dengan topping tambahan</p>
+              <br />
+              <div class="variant">
+                <div class="variant-icons" id="cFlavour-container">
+                  <span id="churros-flavour">VARIAN RASA</span>
+                  <div class="variant-button">
+                    <input type="radio" name="churros-variant" onclick="churrosVariant('cheese-churros')" value="Cheese Churros" id="cheese-churros-option" class="input-hidden" title="Cheese churros!" />
+                    <label for="cheese-churros-option">
+                      <img src="./img/cheese-churros.jpg" alt="" />
+                    </label>
+                    <input type="radio" name="churros-variant" onclick="churrosVariant('chocolate-churros')" value="Chocolate Churros" id="choco-churros-option" class="input-hidden" title="Chocolate churros!" />
+                    <label for="choco-churros-option">
+                      <img src="./img/chocolate-churros.jpg" alt="" />
+                    </label>
+                    <input type="radio" name="churros-variant" onclick="churrosVariant('mix-churros')" value="Mix Churros" id="mix-option" class="input-hidden" title="Mix!" />
+                    <label for="mix-option">
+                      <img src="./img/chocolate-churros.jpg" alt="" />
+                    </label>
+                  </div>
+                </div>
+                <div class="variant-icons" id="topping-container">
+                  <span id="churros-topping">TOPPING</span>
+                  <div class="topping-button">
+                    <div id="cheese-topping">
+                      <input type="radio" name="churros-topping" value="cheese" id="cheese-churros" />
+                      <label for="cheese-churros"><i class="fa-solid fa-cheese"></i></label>
+                    </div>
+                    <div id="chocolate-topping">
+                      <input type="radio" name="churros-topping" value="chocolate" id="chocolate-churros" />
+                      <label for="chocolate-churros"><i class="fa-solid fa-mug-hot"></i></label>
+                    </div>
+                  </div>
+                </div>
+                <input type="number" name="churros-quantity" id="churros-quantity" class="quantity" readonly placeholder="0" />
+              </div>
+            </div>
+            <div class="button">
+              <button class="like">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+              <button class="buy" id="add-churros" disabled onclick="addChurrosToCart(this)">Add to cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cart-container">
+      <div class="cart-button">
+        <div id="cart-counter"><span></span></div>
+        <button onclick="showTables()">
+          <img src="./img/shopping_bag_FILL0_wght400_GRAD0_opsz48.png" alt="" />
+        </button>
+      </div>
+      <div id="shopping-cart">
+        <div class="txt-heading">
+          <h1>Shopping cart</h1>
+          <a onClick="emptyCart()" id="btnEmpty"><i class="fa-solid fa-trash"></i></a>
+        </div>
+        <table class="tbl-cart" cellpadding="10" cellspacing="15" id="cartTable">
+          <tbody id="cartTableBody"></tbody>
+          <tfoot>
+            <tr>
+              <td class="text-right">Total:</td>
+              <td id="itemCount" class="text-right" colspan="2"></td>
+              <td id="totalAmount" class="text-right"></td>
+            </tr>
+          </tfoot>
+        </table>
+        <div class="form">
+          <div class="wave-group">
+            <input required="" type="text" class="input" id="name" name="name" onkeyup="inputName()" />
+            <span class="bar"></span>
+            <label class="label">
+              <span class="label-char" style="--index: 0">N</span>
+              <span class="label-char" style="--index: 1">a</span>
+              <span class="label-char" style="--index: 2">m</span>
+              <span class="label-char" style="--index: 3">a</span>
+            </label>
+          </div>
+          <div class="wave-group">
+            <input required="" type="text" class="input" id="address" name="address" onkeyup="inputAddress()" />
+            <span class="bar"></span>
+            <label class="label">
+              <span class="label-char" style="--index: 0">A</span>
+              <span class="label-char" style="--index: 1">l</span>
+              <span class="label-char" style="--index: 2">a</span>
+              <span class="label-char" style="--index: 3">m</span>
+              <span class="label-char" style="--index: 4">a</span>
+              <span class="label-char" style="--index: 5">t</span>
+            </label>
+          </div>
+        </div>
+        <button class="orderBtn" type="submit" onclick="callPHP()">Order now <i class="fa-brands fa-whatsapp"></i></button>
+      </div>
+    </div>
+
+    <footer id="footer">
+      <img src="./img/ELEOSZ.png" alt="Eleosz Food" />
+      <div class="contact">
+        <h4>Contact us:</h4>
+        <a href="https://api.whatsapp.com/send?phone=6288210108774"><i class="fa-brands fa-whatsapp"></i> +62-882-1010-8774</a>
+        <a href="https://api.whatsapp.com/send?phone=6289508321714"><i class="fa-brands fa-whatsapp"></i> +62-895-0832-1714</a>
+      </div>
+      <div class="social-media">
+        <h4>Find us on:</h4>
+        <a href="https://instagram.com/philipe_pz" target="_blank"><i class="fa-brands fa-instagram"></i> philipe_pz</a>
+        <a href="https://instagram.com/nyimasp" target="_blank"><i class="fa-brands fa-instagram"></i> nyimasp</a>
+      </div>
+      <div class="quick-links">
+        <h4><a href="#top">Home</a></h4>
+        <h4><a href="#about">About</a></h4>
+        <h4><a href="#menu">Menu</a></h4>
+      </div>
+    </footer>
+
+    <script type="text/javascript" src="./js/script.js?t=12345"></script>
+    <script src="./js/all.js"></script>
+    <script src="./js/all.min.js"></script>
+  </body>
+</html>
