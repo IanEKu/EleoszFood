@@ -1,7 +1,3 @@
-import Swal from "./node_modules/sweetalert2/dist/sweetalert2.js";
-
-import "sweetalert2/src/sweetalert2.scss";
-
 var variant;
 var counter = 1;
 
@@ -200,34 +196,6 @@ function showCartTable() {
 
 function showTables() {
   document.getElementById("shopping-cart").classList.toggle("show");
-}
-
-// Send Whatsapp
-function callPHP() {
-  if (cookiesData[0]["product"].length >= 1) {
-    if (cookiesData[0]["address"] && cookiesData[0]["nama"]) {
-      var url = "Halo Eleosz Food %0asaya " + cookiesData[0]["nama"] + " ingin memesan dengan rincian berikut : %0a";
-      cookiesData[0]["product"].forEach((element) => {
-        url = url + "- " + element + " %0a";
-      });
-      url = url + "%0adikirim ke " + cookiesData[0]["address"] + " %0adengan total: Rp. " + cookiesData[0]["total"] + "  *Tolong konfirmasi total dahulu* %0a_Terima Kasih!_";
-      window.open("https://api.whatsapp.com/send?phone=082192749859&text=" + url);
-    } else {
-      Swal.fire({
-        title: "Gagal!",
-        text: "Alamat dan nama harus diisi",
-        icon: "error",
-        showConfirmButton: false,
-      });
-    }
-  } else {
-    Swal.fire({
-      title: "Gagal!",
-      text: "Cart kamu masih kosong",
-      icon: "error",
-      showConfirmButton: false,
-    });
-  }
 }
 
 // Hamburger menu
