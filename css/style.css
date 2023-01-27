@@ -1082,26 +1082,50 @@ footer .quick-links {
     width: 1px;
   }
 
+  /* Menu */
+  .menu {
+    height: 200vh;
+  }
+
+  .cards {
+    width: 100%;
+    height: 85%;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
   .cards .quantity {
     width: 50px;
   }
 
   .cards .product-images img {
     margin: 2%;
+    width: 55%;
+    margin: 2.5%;
   }
 
   .cards .product-header {
     flex-direction: column;
   }
 
+  .cards .pudding-card {
+    width: 60%;
+    height: 40% !important;
+  }
+
+  .cards .churros-card {
+    width: 60%;
+    height: 40% !important;
+  }
+
   .cards .pudding-card .product-text {
-    margin-top: -35px;
+    margin-top: -12%;
     margin-bottom: -145px;
     height: 107%;
   }
 
   .cards .pudding-card .product-text .product-header {
-    margin-bottom: 12.5%;
+    /* margin-bottom: 12.5%; */
   }
 
   .cards .churros-card .quantity {
