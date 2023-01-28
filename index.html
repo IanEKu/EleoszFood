@@ -89,12 +89,7 @@
         </div>
         <div class="pudding-card">
           <div class="product-images">
-            <img src="./img/chocolate-pudding.jpg" alt="" id="chocolate-pudding" />
-            <img src="./img/biscuit-pudding.jpg" alt="" id="biscuit-pudding" />
-            <img src="./img/greentea-pudding.jpg" alt="" id="greentea-pudding" />
-            <img src="./img/bubblegum-pudding.jpg" alt="" id="bubblegum-pudding" />
-            <img src="./img/chococookies-pudding.jpg" alt="" id="chococookies-pudding" />
-            <img src="./img/strawberry-pudding.jpg" alt="" id="strawberry-pudding" />
+            <img src="./img/chocolate-pudding.jpg" alt="" id="pudding-image" />
           </div>
           <div class="product-text">
             <div class="product-header">
@@ -108,27 +103,27 @@
                 <div class="variant-icons">
                   <span id="pudding-flavour">VARIAN RASA</span>
                   <div class="radio-buttons">
-                    <input type="radio" name="pudding-variant" value="Strawberry pudding" onclick="puddingVariant('strawberry')" id="strawberry-option" class="input-hidden" />
+                    <input type="radio" name="pudding-variant" value="Strawberry" id="strawberry-option" class="input-hidden" />
                     <label for="strawberry-option">
                       <img src="./img/strawberry-pudding.jpg" alt="" />
                     </label>
-                    <input type="radio" title="Chocolate pudding!" onclick="puddingVariant('chocolate')" value="Chocolate pudding" id="chocolate-option" class="input-hidden" name="pudding-variant" />
+                    <input type="radio" title="Chocolate pudding!" value="Chocolate" id="chocolate-option" class="input-hidden" name="pudding-variant" />
                     <label for="chocolate-option">
                       <img src="./img/chocolate-pudding.jpg" alt="" />
                     </label>
-                    <input type="radio" title="Chococookies pudding!" onclick="puddingVariant('chococookies')" value="Chococookies pudding" id="chococookies-option" class="input-hidden" name="pudding-variant" />
+                    <input type="radio" title="Chococookies pudding!" value="Chococookies" id="chococookies-option" class="input-hidden" name="pudding-variant" />
                     <label for="chococookies-option">
                       <img src="./img/chococookies-pudding.jpg" alt="" />
                     </label>
-                    <input type="radio" title="Greentea pudding!" onclick="puddingVariant('greentea')" value="Greentea pudding" id="greentea-option" class="input-hidden" name="pudding-variant" />
+                    <input type="radio" title="Greentea pudding!" value="Greentea" id="greentea-option" class="input-hidden" name="pudding-variant" />
                     <label for="greentea-option">
                       <img src="./img/greentea-pudding.jpg" alt="" />
                     </label>
-                    <input type="radio" title="Biscuit pudding!" onclick="puddingVariant('biscuit')" value="Biscuit pudding" id="biscuit-option" class="input-hidden" name="pudding-variant" />
+                    <input type="radio" title="Biscuit pudding!" value="Biscuit" id="biscuit-option" class="input-hidden" name="pudding-variant" />
                     <label for="biscuit-option">
                       <img src="./img/biscuit-pudding.jpg" alt="" />
                     </label>
-                    <input type="radio" title="Bubblegum pudding!" onclick="puddingVariant('bubblegum')" value="Bubblegum pudding" id="bubblegum-option" class="input-hidden" name="pudding-variant" />
+                    <input type="radio" title="Bubblegum pudding!" value="Bubblegum" id="bubblegum-option" class="input-hidden" name="pudding-variant" />
                     <label for="bubblegum-option">
                       <img src="./img/bubblegum-pudding.jpg" alt="" />
                     </label>
@@ -147,8 +142,7 @@
         </div>
         <div class="churros-card">
           <div class="product-images">
-            <img src="./img/cheese-churros.jpg" alt="" id="cheese-churros" />
-            <img src="./img/chocolate-churros.jpg" alt="" id="chocolate-churros" />
+            <img src="./img/cheese-churros.jpg" alt="" id="churros-image" />
           </div>
           <div class="product-text churros-text">
             <div class="product-header">
@@ -164,15 +158,15 @@
                 <div class="variant-icons" id="cFlavour-container">
                   <span id="churros-flavour">VARIAN RASA</span>
                   <div class="variant-button">
-                    <input type="radio" name="churros-variant" onclick="churrosVariant('cheese-churros')" value="Cheese Churros" id="cheese-churros-option" class="input-hidden" title="Cheese churros!" />
+                    <input type="radio" name="churros-variant" value="Cheese" id="cheese-churros-option" class="input-hidden" title="Cheese churros!" />
                     <label for="cheese-churros-option">
                       <img src="./img/cheese-churros.jpg" alt="" />
                     </label>
-                    <input type="radio" name="churros-variant" onclick="churrosVariant('chocolate-churros')" value="Chocolate Churros" id="choco-churros-option" class="input-hidden" title="Chocolate churros!" />
+                    <input type="radio" name="churros-variant" value="Chocolate" id="choco-churros-option" class="input-hidden" title="Chocolate churros!" />
                     <label for="choco-churros-option">
                       <img src="./img/chocolate-churros.jpg" alt="" />
                     </label>
-                    <input type="radio" name="churros-variant" onclick="churrosVariant('mix-churros')" value="Mix Churros" id="mix-option" class="input-hidden" title="Mix!" />
+                    <input type="radio" name="churros-variant" value="Mix" id="mix-option" class="input-hidden" title="Mix!" />
                     <label for="mix-option">
                       <img src="./img/chocolate-churros.jpg" alt="" />
                     </label>
@@ -186,7 +180,7 @@
                       <label for="cheese-churros"><i class="fa-solid fa-cheese"></i></label>
                     </div>
                     <div id="chocolate-topping">
-                      <input type="radio" name="churros-topping" value="chocolate" id="chocolate-churros" />
+                      <input type="radio" name="churros-topping" value="milo" id="chocolate-churros" />
                       <label for="chocolate-churros"><i class="fa-solid fa-mug-hot"></i></label>
                     </div>
                   </div>
@@ -198,7 +192,7 @@
               <button class="like">
                 <i class="fa-regular fa-heart"></i>
               </button>
-              <button class="buy" id="add-churros" disabled onclick="addChurrosToCart(this)">Add to cart</button>
+              <button class="buy" id="add-churros" onclick="addChurrosToCart(this)">Add to cart</button>
             </div>
           </div>
         </div>

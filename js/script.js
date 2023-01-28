@@ -15,68 +15,26 @@ window.onload = function () {
   sessionStorage.clear();
 };
 
-// Change product image
-function puddingVariant(variant) {
-  if (variant == "cheese-churros") {
-    this.style.zIndex = ++counter;
-  }
-  if (variant == "strawberry") {
-    document.getElementById("strawberry-pudding").style.zIndex = ++counter;
-  }
-  if (variant == "chocolate") {
-    document.getElementById("chocolate-pudding").style.zIndex = ++counter;
-  }
-  if (variant == "chococookies") {
-    document.getElementById("chococookies-pudding").style.zIndex = ++counter;
-  }
-  if (variant == "greentea") {
-    document.getElementById("greentea-pudding").style.zIndex = ++counter;
-  }
-  if (variant == "bubblegum") {
-    document.getElementById("bubblegum-pudding").style.zIndex = ++counter;
-  }
-  if (variant == "biscuit") {
-    document.getElementById("biscuit-pudding").style.zIndex = ++counter;
-  }
-}
-
-function churrosVariant(variant) {
-  if (variant == "cheese-churros") {
-    document.getElementById("cheese-churros").style.zIndex = ++counter;
-  }
-  if (variant == "chocolate-churros") {
-    document.getElementById("chocolate-churros").style.zIndex = ++counter;
-  }
-}
-
 $('input[name="pudding-variant"]').on("change", function () {
   var puddingVariant = document.querySelector('input[name="pudding-variant"]:checked').value;
 
   document.getElementById("pudding-flavour").innerHTML = puddingVariant;
-  document.getElementById("pudding-quantity").value = 1;
+  document.getElementById("pudding-image").src = "./img/" + puddingVariant.toLowerCase() + "-pudding.jpg";
   document.getElementById("pudding-quantity").readOnly = false;
+  document.getElementById("pudding-quantity").value = 1;
 });
 
 $('input[name="churros-variant"]').on("change", function () {
   var churrosVariant = document.querySelector('input[name="churros-variant"]:checked');
-  var churrosTopping = document.querySelector('input[name="churros-topping"]:checked');
-
-  if (churrosVariant && churrosTopping) {
-    document.querySelector("#add-churros").disabled = false;
-  }
 
   document.getElementById("churros-flavour").innerHTML = churrosVariant.value;
+  document.getElementById("churros-image").src = "./img/" + churrosVariant.value.toLowerCase() + "-churros.jpg";
   document.getElementById("churros-quantity").value = 1;
   document.getElementById("churros-quantity").readOnly = false;
 });
 
 $('input[name="churros-topping"]').on("change", function () {
-  var churrosVariant = document.querySelector('input[name="churros-variant"]:checked');
   var churrosTopping = document.querySelector('input[name="churros-topping"]:checked');
-
-  if (churrosVariant && churrosTopping) {
-    document.querySelector("#add-churros").disabled = false;
-  }
 
   document.getElementById("churros-topping").innerHTML = "with " + churrosTopping.value;
 });
@@ -91,65 +49,104 @@ function inputName() {
 }
 
 function addToCart(element) {
-  var productParent = $(element).closest("div.product-text");
+  var puddingVariant = document.querySelector('input[name="pudding-variant"]:checked');
 
-  var price = $(productParent).find(".price span").text();
-  var productName = $(productParent).find('input[name="pudding-variant"]:checked').val();
-  var quantity = $(productParent).find(".quantity").val();
+  if (puddingVariant) {
+    var quantity = document.querySelector('input[name="pudding-quantity"]').value;
+    if (quantity >= 1) {
+      var productParent = $(element).closest("div.product-text");
 
-  var cartItem = {
-    productName: productName,
-    price: price,
-    quantity: quantity,
-  };
-  var cartItemJSON = JSON.stringify(cartItem);
+      var price = $(productParent).find(".price span").text();
+      var productName = $(productParent).find('input[name="pudding-variant"]:checked').val();
+      var quantity = $(productParent).find(".quantity").val();
 
-  var cartArray = new Array();
-  if (sessionStorage.getItem("shopping-cart")) {
-    cartArray = JSON.parse(sessionStorage.getItem("shopping-cart"));
+      var cartItem = {
+        productName: productName,
+        price: price,
+        quantity: quantity,
+      };
+      var cartItemJSON = JSON.stringify(cartItem);
+
+      var cartArray = new Array();
+      if (sessionStorage.getItem("shopping-cart")) {
+        cartArray = JSON.parse(sessionStorage.getItem("shopping-cart"));
+      }
+      cartArray.push(cartItemJSON);
+
+      var cartJSON = JSON.stringify(cartArray);
+      sessionStorage.setItem("shopping-cart", cartJSON);
+      showCartTable();
+
+      var i = cookiesData[0]["product"].length;
+      cookiesData[0]["product"][i] = productName + " " + quantity;
+      cookiesData[0]["total"] = cookiesData[0]["total"] + parseInt(price);
+    } else {
+      Swal.fire({
+        title: "Gagal!",
+        text: "Tidak bisa memasukkan angka dibawah 0",
+        icon: "error",
+        showConfirmButton: false,
+      });
+    }
+  } else {
+    Swal.fire({
+      title: "Gagal!",
+      text: "Pilih 1 rasa pudding",
+      icon: "error",
+      showConfirmButton: false,
+    });
   }
-  cartArray.push(cartItemJSON);
-
-  var cartJSON = JSON.stringify(cartArray);
-  console.log(cartJSON);
-  sessionStorage.setItem("shopping-cart", cartJSON);
-  showCartTable();
-
-  var i = cookiesData[0]["product"].length;
-  cookiesData[0]["product"][i] = productName + " " + quantity;
-  cookiesData[0]["total"] = cookiesData[0]["total"] + parseInt(price);
-  console.log(cookiesData);
 }
 
 function addChurrosToCart(element) {
-  var productParent = $(element).closest("div.churros-text");
+  var churrosTopping = document.querySelector('input[name="churros-topping"]:checked');
+  var churrosVariant = document.querySelector('input[name="churros-variant"]:checked');
 
-  var price = $(productParent).find(".price span").text();
-  var productName = $(productParent).find('input[name="churros-variant"]:checked').val();
-  var topping = $(productParent).find('input[name="churros-topping"]:checked').val();
-  var quantity = $(productParent).find(".quantity").val();
+  if (churrosVariant && churrosTopping) {
+    var quantity = document.querySelector('input[name="churros-quantity"]').value;
+    if (quantity >= 1) {
+      var productParent = $(element).closest("div.churros-text");
 
-  var cartItem = {
-    productName: productName + " with " + topping,
-    price: price,
-    quantity: quantity,
-  };
-  var cartItemJSON = JSON.stringify(cartItem);
+      var price = $(productParent).find(".price span").text();
+      var productName = $(productParent).find('input[name="churros-variant"]:checked').val();
+      var topping = $(productParent).find('input[name="churros-topping"]:checked').val();
+      var quantity = $(productParent).find(".quantity").val();
 
-  var cartArray = new Array();
-  if (sessionStorage.getItem("shopping-cart")) {
-    cartArray = JSON.parse(sessionStorage.getItem("shopping-cart"));
+      var cartItem = {
+        productName: productName + " with " + topping,
+        price: price,
+        quantity: quantity,
+      };
+      var cartItemJSON = JSON.stringify(cartItem);
+
+      var cartArray = new Array();
+      if (sessionStorage.getItem("shopping-cart")) {
+        cartArray = JSON.parse(sessionStorage.getItem("shopping-cart"));
+      }
+      cartArray.push(cartItemJSON);
+
+      var cartJSON = JSON.stringify(cartArray);
+      sessionStorage.setItem("shopping-cart", cartJSON);
+      showCartTable();
+      var i = cookiesData[0]["product"].length;
+      cookiesData[0]["product"][i] = productName + " with " + topping + " " + quantity;
+      cookiesData[0]["total"] = cookiesData[0]["total"] + parseInt(price);
+    } else {
+      Swal.fire({
+        title: "Gagal!",
+        text: "Tidak bisa memasukkan angka dibawah 0",
+        icon: "error",
+        showConfirmButton: false,
+      });
+    }
+  } else {
+    Swal.fire({
+      title: "Gagal!",
+      text: "Pilih 1 rasa crispy roll dan 1 topping",
+      icon: "error",
+      showConfirmButton: false,
+    });
   }
-  cartArray.push(cartItemJSON);
-
-  var cartJSON = JSON.stringify(cartArray);
-  console.log(cartJSON);
-  sessionStorage.setItem("shopping-cart", cartJSON);
-  showCartTable();
-  var i = cookiesData[0]["product"].length;
-  cookiesData[0]["product"][i] = productName + " with " + topping + " " + quantity;
-  cookiesData[0]["total"] = cookiesData[0]["total"] + parseInt(price);
-  console.log(cookiesData);
 }
 
 function emptyCart() {
